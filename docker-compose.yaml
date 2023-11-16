@@ -20,6 +20,7 @@ services:
       DB_SERVER: mysql
     volumes:
       - ./src:/var/www
+      - presta-data:/var/www
     ports:
       - 8080:80
     networks:
