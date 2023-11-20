@@ -2,6 +2,7 @@
 
 /.htaccess
 *.log
+*.sock
 
 # Cache
 /cache/*
