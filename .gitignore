@@ -183,7 +183,3 @@ fabric.properties
 
 # idea folder, uncomment if you don't need it
 .idea
-
-#images
-images_high/
-images_low/

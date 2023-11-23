@@ -8,8 +8,11 @@ import random
 url = "https://eodkurzacz.pl/"
 atribute1 = "Moc odkurzacza"
 atribute2 = "Wymiary\xa0odkurzacza"
-low_res_folder = "../../images_low"
-high_res_folder = "../../images_high"
+file_addr = "http://localhost:8080"
+presta_folder ="../../app"
+master_folder = "/img/products"
+low_res_folder = "/images_low"
+high_res_folder = "/images_high"
 data_folder = "../../data"
 
 def get_subcategories(category):
@@ -33,8 +36,8 @@ def get_products(cat_name,subcategory):
         name,desc,price,power,dimensions,brand,img_path_high = get_product_info(link) #get product info from product page
         low_res_img_link  = product.find('img')['data-src'] #get product miniature link
         img_data = requests.get(url + low_res_img_link).content #get product miniature
-        img_path = low_res_folder + "/" + name.replace("/","") + ".jpg" #product miniature name and path
-        with open(img_path,'wb') as handler:
+        img_path = master_folder+low_res_folder + "/" + name.replace("/","").replace("-","").replace(" ","_").replace("\xa0","_") + "_low.jpg" #product miniature name and path
+        with open(presta_folder+img_path,'wb') as handler:
             handler.write(img_data) #save product miniature
 
         products.append({"name":name,"brand":brand,"description":desc,"power": power,"dimensions":dimensions,"price":price,"category":cat_name,"subcategory":subcategory['name'],"img_path_high":img_path_high,"img_path":img_path}) #add product info to products list
@@ -65,8 +68,8 @@ def get_product_info(link):
 
     high_res_link = soup.find('div',{"class": "mainimg productdetailsimgsize row"}).find('img')['src']  # get product image link
     img_data = requests.get(url + high_res_link).content  # get product image
-    img_path = high_res_folder + "/" + name.replace("/", "") + ".jpg"  # product image name and path
-    with open(img_path, 'wb') as handler:
+    img_path = master_folder + high_res_folder + "/" + name.replace("/", "").replace("-","").replace(" ","_").replace("\xa0","_") + ".jpg"  # product image name and path
+    with open(presta_folder + img_path, 'wb') as handler:
         handler.write(img_data)  # save product image
 
     imges = soup.find_all("img")
@@ -134,7 +137,6 @@ def writeProducts(products):
                 p['dimensions'] = p['dimensions'].replace("\xa0"," ")
                 p['dimensions'] = p['dimensions'].replace(" x ","×")
                 dimensions = str(p['dimensions']).split('×')
-                print(dimensions)
                 for i in range(len(dimensions)):
                     dimensions[i] = re.sub('[^0-9]', '', dimensions[2])
             row = []
@@ -180,7 +182,7 @@ def writeProducts(products):
             row.append('')
             row.append('')
             row.append('1')
-            row.append(p["img_path"]+","+p["img_path_high"])
+            row.append(file_addr+p["img_path"]+","+file_addr+p["img_path_high"])
             row.append(p['name']+","+p["name"])
             row.append('1')
             if p['power']!="":
@@ -207,10 +209,15 @@ def writeProducts(products):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    if not os.path.exists(low_res_folder):
-        os.mkdir(low_res_folder, 0o666)
-    if not os.path.exists(high_res_folder):
-        os.mkdir(high_res_folder, 0o666)
+    if not os.path.exists(presta_folder):
+        os.mkdir(presta_folder)
+    if not os.path.exists(presta_folder+master_folder):
+        os.mkdir(presta_folder + "/" + master_folder.split("/")[1], 0o666)
+        os.mkdir(presta_folder+master_folder, 0o666)
+    if not os.path.exists(presta_folder+master_folder+high_res_folder):
+        os.mkdir(presta_folder+master_folder+high_res_folder, 0o666)
+    if not os.path.exists(presta_folder+master_folder+low_res_folder):
+        os.mkdir(presta_folder+master_folder+low_res_folder, 0o666)
 
     names = []
     page = requests.get(url)
@@ -228,6 +235,7 @@ if __name__ == '__main__':
     for i in range(len(names)):
         for subcategory in subcategories[i]:
             products+= get_products(names[i],subcategory)
+            print(subcategory['name'])
     writeProducts(products)
-
+    print("ok")
 
