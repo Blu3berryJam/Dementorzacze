@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql:
-    image: mysql:8
+    image: mariadb:lates
     container_name: prestashop-db
     command: --lower_case_table_names=2
     environment:
@@ -10,7 +10,6 @@ services:
       MYSQL_ROOT_PASSWORD: prestashop
     volumes:
       - ./db_dump/mysql:/var/lib/mysql
-      - ./db_dump/initdb.d:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
     networks:
