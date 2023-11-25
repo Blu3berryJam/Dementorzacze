@@ -1,3 +1,2 @@
 #Instalacja
-w folderze uruchomić kontener poleceniem
-docker-compose up
+Ta wersja nie działa
