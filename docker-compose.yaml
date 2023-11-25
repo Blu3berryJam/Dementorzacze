@@ -2,7 +2,7 @@ version: '3'
 
 services:
   mysql:
-    image: mariadb:lates
+    image: mariadb:latest
     container_name: prestashop-db
     command: --lower_case_table_names=2
     environment:
