@@ -4,7 +4,7 @@ services:
   mysql:
     image: mariadb:latest
     container_name: prestashop-db
-    command: --lower_case_table_names=0 && --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_DATABASE: prestashop
       MYSQL_ROOT_PASSWORD: prestashop
