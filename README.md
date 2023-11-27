@@ -17,3 +17,7 @@ sudo docker compose up
 
 # Praca z gitem
 Aby cokolwiek wstawić na gita należy pamiętać żeby nadać upranienia do czytania i pisania, inaczej git się zbuntuje.
+```
+sudo chmod -R 777 *
+ -- operacje git ---
+```
