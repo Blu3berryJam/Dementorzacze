@@ -20,8 +20,6 @@
 !/cache/smarty/index.php
 !/cache/tcpdf/index.php
 
-*.doctrinecache.data
-
 # Download
 /download/*
 !/download/.htaccess
