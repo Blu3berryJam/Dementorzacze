@@ -2,7 +2,6 @@
 
 /.htaccess
 *.log
-*.sock
 
 # Cache
 /cache/*
@@ -19,8 +18,6 @@
 !/cache/smarty/compile/index.php
 !/cache/smarty/index.php
 !/cache/tcpdf/index.php
-
-*.doctrinecache.data
 
 # Download
 /download/*

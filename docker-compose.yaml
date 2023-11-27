@@ -8,8 +8,6 @@ services:
     environment:
       MYSQL_DATABASE: prestashop
       MYSQL_ROOT_PASSWORD: prestashop
-    volumes:
-      - ./db_dump:/var/lib/mysql
     ports:
       - 3306:3306
     networks:
@@ -21,7 +19,8 @@ services:
     environment:
       DB_SERVER: mysql
     volumes:
-      - ./app:/var/www/html
+      - ./src:/var/www
+      - presta-data:/var/www
     ports:
       - 8080:80
     networks:
@@ -29,3 +28,7 @@ services:
 
 networks:
   prestashop:
+
+volumes:
+  presta-data:
+    driver: local
