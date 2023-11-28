@@ -1,0 +1,14 @@
+/*
+ * Custom code goes here.
+ * A template should always ship with an empty custom.css
+ */
+
+
+ .carousel .carousel-inner {
+    height: 690px;
+}
+
+#header .logo {
+    max-width: 100%;
+    height: auto;
+}

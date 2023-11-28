@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-26 20:38:26
+/* Smarty version 3.1.48, created on 2023-11-28 23:50:35
   from '/var/www/html/admin_123/themes/new-theme/template/components/layout/quick_access.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_65639eb2587d52_77469179',
+  'unifunc' => 'content_65666ebba584e9_04649381',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '9dd7dc9b76474e027e6989c7540edbe87f814cec' => 
     array (
       0 => '/var/www/html/admin_123/themes/new-theme/template/components/layout/quick_access.tpl',
-      1 => 1701027259,
+      1 => 1701190912,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_65639eb2587d52_77469179 (Smarty_Internal_Template $_smarty_tpl) {
+function content_65666ebba584e9_04649381 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="dropdown quick-accesses">
   <button class="btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="quick_select">
     <?php echo call_user_func_array( $_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['l'][0], array( array('s'=>'Quick Access','d'=>'Admin.Navigation.Header'),$_smarty_tpl ) );?>
