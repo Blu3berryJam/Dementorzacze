@@ -1,18 +1,14 @@
 import os
 import re
-
 from bs4 import BeautifulSoup
 import requests
 import csv
 import random
+import multiprocessing
+
 url = "https://eodkurzacz.pl/"
 atribute1 = "Moc odkurzacza"
 atribute2 = "Wymiary\xa0odkurzacza"
-file_addr = "http://localhost:8080"
-presta_folder ="../../app"
-master_folder = "/img/products"
-low_res_folder = "/images_low"
-high_res_folder = "/images_high"
 data_folder = "../../data"
 
 def get_subcategories(category):
@@ -33,14 +29,9 @@ def get_products(cat_name,subcategory):
     products = []
     for product in product_divs:
         link = product.find('a',{"class": "prodimage f-row"})['href'] #get product page link
-        name,desc,price,power,dimensions,brand,img_path_high = get_product_info(link) #get product info from product page
+        name,desc,price,power,dimensions,brand,high_res_img_link = get_product_info(link) #get product info from product page
         low_res_img_link  = product.find('img')['data-src'] #get product miniature link
-        img_data = requests.get(url + low_res_img_link).content #get product miniature
-        img_path = master_folder+low_res_folder + "/" + name.replace("/","").replace("-","").replace(" ","_").replace("\xa0","_") + "_low.jpg" #product miniature name and path
-        with open(presta_folder+img_path,'wb') as handler:
-            handler.write(img_data) #save product miniature
-
-        products.append({"name":name,"brand":brand,"description":desc,"power": power,"dimensions":dimensions,"price":price,"category":cat_name,"subcategory":subcategory['name'],"img_path_high":img_path_high,"img_path":img_path}) #add product info to products list
+        products.append({"name":name,"brand":brand,"description":desc,"power": power,"dimensions":dimensions,"price":price,"category":cat_name,"subcategory":subcategory['name'],"high_res_img_link":high_res_img_link,"low_res_img_link":low_res_img_link}) #add product info to products list
     return products
 
 def get_product_info(link):
@@ -67,18 +58,14 @@ def get_product_info(link):
         brand = "-"
 
     high_res_link = soup.find('div',{"class": "mainimg productdetailsimgsize row"}).find('img')['src']  # get product image link
-    img_data = requests.get(url + high_res_link).content  # get product image
-    img_path = master_folder + high_res_folder + "/" + name.replace("/", "").replace("-","").replace(" ","_").replace("\xa0","_") + ".jpg"  # product image name and path
-    with open(presta_folder + img_path, 'wb') as handler:
-        handler.write(img_data)  # save product image
 
     imges = soup.find_all("img")
     for i in imges:
         i.decompose()
     description_div = soup.find('div',{"class":"resetcss"})#get product description
     if description_div is not None:
-        description = description_div
-    return name,description,price,power,dimensions,brand,img_path
+        description = str(description_div)
+    return name,description,price,power,dimensions,brand,high_res_link
 
 def writeCategories(names,subcategories):
     if not os.path.exists(data_folder):
@@ -182,7 +169,7 @@ def writeProducts(products):
             row.append('')
             row.append('')
             row.append('1')
-            row.append(file_addr+p["img_path"]+","+file_addr+p["img_path_high"])
+            row.append(url+p["low_res_img_link"]+","+url+p["high_res_img_link"])
             row.append(p['name']+","+p["name"])
             row.append('1')
             if p['power']!="":
@@ -209,16 +196,6 @@ def writeProducts(products):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    if not os.path.exists(presta_folder):
-        os.mkdir(presta_folder)
-    if not os.path.exists(presta_folder+master_folder):
-        os.mkdir(presta_folder + "/" + master_folder.split("/")[1], 0o666)
-        os.mkdir(presta_folder+master_folder, 0o666)
-    if not os.path.exists(presta_folder+master_folder+high_res_folder):
-        os.mkdir(presta_folder+master_folder+high_res_folder, 0o666)
-    if not os.path.exists(presta_folder+master_folder+low_res_folder):
-        os.mkdir(presta_folder+master_folder+low_res_folder, 0o666)
-
     names = []
     page = requests.get(url)
     soup = BeautifulSoup(page.content, 'html.parser')
@@ -230,12 +207,15 @@ if __name__ == '__main__':
         names.append(c.find('span').get_text())
         subcategories.append(get_subcategories(c))
     writeCategories(names,subcategories)
-
+    pool = multiprocessing.Pool()
     products = []
     for i in range(len(names)):
+        items = []
         for subcategory in subcategories[i]:
-            products+= get_products(names[i],subcategory)
-            print(subcategory['name'])
-    writeProducts(products)
+            items.append([names[i],subcategory])
+        for result in pool.starmap(get_products,items):
+            products+= result
+            print('ok')
+        writeProducts(products)
     print("ok")
 
