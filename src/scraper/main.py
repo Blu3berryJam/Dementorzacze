@@ -30,8 +30,8 @@ def get_products(cat_name,subcategory):
     for product in product_divs:
         link = product.find('a',{"class": "prodimage f-row"})['href'] #get product page link
         name,desc,price,power,dimensions,brand,high_res_img_link = get_product_info(link) #get product info from product page
-        low_res_img_link  = product.find('img')['data-src'] #get product miniature link
-        products.append({"name":name,"brand":brand,"description":desc,"power": power,"dimensions":dimensions,"price":price,"category":cat_name,"subcategory":subcategory['name'],"high_res_img_link":high_res_img_link,"low_res_img_link":low_res_img_link}) #add product info to products list
+        #low_res_img_link  = product.find('img')['data-src'] #get product miniature link
+        products.append({"name":name,"brand":brand,"description":desc,"power": power,"dimensions":dimensions,"price":price,"category":cat_name,"subcategory":subcategory['name'],"high_res_img_link":high_res_img_link})#,"low_res_img_link":low_res_img_link}) #add product info to products list
     return products
 
 def get_product_info(link):
@@ -169,7 +169,8 @@ def writeProducts(products):
             row.append('')
             row.append('')
             row.append('1')
-            row.append(url+p["low_res_img_link"]+","+url+p["high_res_img_link"])
+            #row.append(url+p["low_res_img_link"]+","+url+p["high_res_img_link"])
+            row.append(url+p["high_res_img_link"])
             row.append(p['name']+","+p["name"])
             row.append('1')
             if p['power']!="":
