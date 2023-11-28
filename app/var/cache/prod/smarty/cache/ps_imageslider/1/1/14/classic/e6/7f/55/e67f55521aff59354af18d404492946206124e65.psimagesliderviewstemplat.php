@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-25 15:15:00
+/* Smarty version 3.1.48, created on 2023-11-28 20:35:11
   from 'module:psimagesliderviewstemplat' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_65620164a529b4_27391630',
+  'unifunc' => 'content_656640ef5e9bf9_46474099',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -18,7 +18,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_65620164a529b4_27391630 (Smarty_Internal_Template $_smarty_tpl) {
+function content_656640ef5e9bf9_46474099 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
   <div id="carousel" data-ride="carousel" class="carousel slide" data-interval="5000" data-wrap="true" data-pause="hover" data-touch="true">
     <ol class="carousel-indicators">
@@ -30,36 +30,21 @@ function content_65620164a529b4_27391630 (Smarty_Internal_Template $_smarty_tpl)
               <li class="carousel-item active" role="option" aria-hidden="false">
           <a href="https://www.prestashop-project.org?utm_source=back-office&amp;utm_medium=v17_homeslider&amp;utm_campaign=back-office-PL&amp;utm_content=download">
             <figure>
-              <img src="http://localhost:8080/modules/ps_imageslider/images/sample-1.jpg" alt="sample-1" loading="lazy" width="1110" height="340">
-                              <figcaption class="caption">
-                  <h2 class="display-1 text-uppercase">Sample 1</h2>
-                  <div class="caption-description"><h3>EXCEPTEUR OCCAECAT</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p></div>
-                </figcaption>
+              <img src="http://localhost:8080/modules/ps_imageslider/images/687a65700b6ea7a5fea46630d0d054322074b564_eodkurzacz.png" alt="Mocno sypie - OKAZJAMI!" loading="lazy" width="1110" height="340">
                           </figure>
           </a>
         </li>
               <li class="carousel-item " role="option" aria-hidden="true">
           <a href="https://www.prestashop-project.org?utm_source=back-office&amp;utm_medium=v17_homeslider&amp;utm_campaign=back-office-PL&amp;utm_content=download">
             <figure>
-              <img src="http://localhost:8080/modules/ps_imageslider/images/sample-2.jpg" alt="sample-2" loading="lazy" width="1110" height="340">
-                              <figcaption class="caption">
-                  <h2 class="display-1 text-uppercase">Sample 2</h2>
-                  <div class="caption-description"><h3>EXCEPTEUR OCCAECAT</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p></div>
-                </figcaption>
+              <img src="http://localhost:8080/modules/ps_imageslider/images/241bc6c58ba830ac43d997d5d0671bdf27856a8f_szczotki_i_ssawki.png" alt="Szczotki i Ssawki" loading="lazy" width="1110" height="340">
                           </figure>
           </a>
         </li>
               <li class="carousel-item " role="option" aria-hidden="true">
           <a href="https://www.prestashop-project.org?utm_source=back-office&amp;utm_medium=v17_homeslider&amp;utm_campaign=back-office-PL&amp;utm_content=download">
             <figure>
-              <img src="http://localhost:8080/modules/ps_imageslider/images/sample-3.jpg" alt="sample-3" loading="lazy" width="1110" height="340">
-                              <figcaption class="caption">
-                  <h2 class="display-1 text-uppercase">Sample 3</h2>
-                  <div class="caption-description"><h3>EXCEPTEUR OCCAECAT</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tristique in tortor et dignissim. Quisque non tempor leo. Maecenas egestas sem elit</p></div>
-                </figcaption>
+              <img src="http://localhost:8080/modules/ps_imageslider/images/058025f841eda3a732cd71bed0c1cba0502368aa_akcesoria.png" alt="" loading="lazy" width="1110" height="340">
                           </figure>
           </a>
         </li>
