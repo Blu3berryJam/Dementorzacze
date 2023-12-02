@@ -23,6 +23,8 @@ Aby go uruchomić musisz być w folderze ssl
 cd ssl
 bash enableSSL.sh
 ```
+Ostatnim poleceniem tego skryptu jest restart serwisu apache2... co wyłącza cały kontener więc trzeba go jeszcze raz uruchomić
+można to zrobić w docker desktop -> ten trójkąt 
 
 Następnie, ponieważ jeszcze nie wiem jak to zrobić żeby automatycznie to robiło, trzeba zmienić adres w przeglądarce na
 ```
