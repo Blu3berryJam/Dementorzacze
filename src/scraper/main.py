@@ -199,6 +199,4 @@ if __name__ == '__main__':
             items.append([names[i], subcategory])
         for result in pool.starmap(get_products, items):
             products += result
-            print('ok')
-        writeProducts(products)
-    print("ok")
+    writeProducts(products)
