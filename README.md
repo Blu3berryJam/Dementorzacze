@@ -15,6 +15,13 @@ sudo chmod -R 777 *
 sudo docker compose up
 ```
 
+## Włączenie ssl na prestashopie:
+Wejdź do folderu ssl i uruchom skrypt enableSSL.sh
+
+```
+bash enable.sh
+```
+
 # Praca z gitem
 Aby cokolwiek wstawić na gita należy pamiętać żeby nadać upranienia do czytania i pisania, inaczej git się zbuntuje.
 ```
