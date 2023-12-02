@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.48, created on 2023-11-25 15:15:00
+/* Smarty version 3.1.48, created on 2023-12-02 10:36:30
   from 'module:psbannerpsbanner.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.48',
-  'unifunc' => 'content_65620164c0bea0_90092252',
+  'unifunc' => 'content_656afa9e94b405_06151948',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -18,7 +18,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   ),
   'cache_lifetime' => 31536000,
 ),true)) {
-function content_65620164c0bea0_90092252 (Smarty_Internal_Template $_smarty_tpl) {
+function content_656afa9e94b405_06151948 (Smarty_Internal_Template $_smarty_tpl) {
 ?><a class="banner" href="http://localhost:8080/index.php" title="">
       <img src="http://localhost:8080/modules/ps_banner/img/sale70.png" alt="" title="" class="img-fluid" loading="lazy" width="1110" height="213">
   </a>
