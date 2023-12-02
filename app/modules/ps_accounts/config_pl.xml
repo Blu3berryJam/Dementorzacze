@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>ps_accounts</name>
+    <displayName><![CDATA[Konto PrestaShop]]></displayName>
+    <version><![CDATA[5.6.2]]></version>
+    <description><![CDATA[Połącz Tw&oacute;j sklep z kontem PrestaShop, aby aktywować i zarządzać subskrypcjami w back office. Nie odinstalowuj tego modułu, jeśli masz aktywną subskrypcję.]]></description>
+    <author><![CDATA[PrestaShop]]></author>
+    <tab><![CDATA[administration]]></tab>
+	<confirmUninstall><![CDATA[Ta akcja uniemożliwi natychmiastowe działanie Twoich usług PrestaShop i usług Community, ponieważ używają one modułu PrestaShop Accounts do uwierzytelniania.]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
