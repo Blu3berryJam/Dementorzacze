@@ -116,7 +116,7 @@ def writeProducts(products):
                 for i in range(len(dimensions)):
                     dimensions[i] = re.sub('[^0-9]', '', dimensions[2])
             row = ['', "1", p['name'], p['subcategory'], str(p['price']).replace('\xa0', '').replace(",", "."), "4", '',
-                   '1']
+                   '0']
             for i in range(7):
                 row.append('')
             row.append(p['brand'])
