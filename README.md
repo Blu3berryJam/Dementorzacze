@@ -17,9 +17,16 @@ sudo docker compose up
 
 ## Włączenie ssl na prestashopie:
 Uruchom skrypt enableSSL.sh
+Aby go uruchomić musisz być w folderze ssl
 
 ```
-bash ssl/enableSSL.sh
+cd ssl
+bash enableSSL.sh
+```
+
+Następnie, ponieważ jeszcze nie wiem jak to zrobić żeby automatycznie to robiło, trzeba zmienić adres w przeglądarce na
+```
+localhost:443/admin_123
 ```
 
 # Praca z gitem
