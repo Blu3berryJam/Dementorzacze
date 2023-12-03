@@ -110,17 +110,7 @@ def add_product(product):
 
 
 def add_categories():
-    cat = prestashop.get("categories", options={"filter[name]": "produkty"})
-    root_id = 2
-    if not cat["categories"]:
-        cat_schema["category"]["name"]["language"]["value"] = "produkty"
-        cat_schema["category"]["is_root_category"] = 1
-        cat_schema["category"]["active"] = 1
-        cat_schema["category"]["link_rewrite"]["language"]["value"] = "produkty"
-        cat_schema["category"]["description"]["language"]["value"] =  "Kategoria bazowa"
-        root_id = prestashop.add("categories", cat_schema)["prestashop"]["category"]["id"]
-    else:
-        root_id = cat["categories"]["category"]["attrs"]["id"]
+    root_id = 1
     with open(data_folder + "/categories.json", "r") as infile:
         categories = json.load(infile)
         for cat in categories:
