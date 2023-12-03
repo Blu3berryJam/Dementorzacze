@@ -126,7 +126,7 @@ def add_products():
             add_product(prod)
 
 
-prestashop = prestapyt.PrestaShopWebServiceDict(presta_link, "")  # TODO add key
+prestashop = prestapyt.PrestaShopWebServiceDict(presta_link, "X56WC1EAT6K1ME1AR6CRHXSCPHYIUKUG")  # TODO add key
 
 cat_schema = prestashop.get("categories", options={"schema": "blank"})
 prod_schema = prestashop.get("products", options={"schema": "blank"})
