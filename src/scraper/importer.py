@@ -18,7 +18,7 @@ def get_ids(names, name):
 
 def remove_categories():
     ids = get_ids("categories", "category")
-    ids = [i for i in ids if int(i) >= 2]
+    ids = [i for i in ids if int(i) >= 3]
     if len(ids):
         prestashop.delete("categories", resource_ids=ids)
 
@@ -110,7 +110,7 @@ def add_product(product):
 
 
 def add_categories():
-    root_id = 1
+    root_id = 2
     with open(data_folder + "/categories.json", "r") as infile:
         categories = json.load(infile)
         for cat in categories:
