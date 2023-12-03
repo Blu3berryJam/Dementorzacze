@@ -30,17 +30,15 @@ def get_products(cat_name, subcategory):
         return []
 
     products = []
-    counter = 1
     for product in product_divs:
         link = product.find('a', {"class": "prodimage f-row"})['href']  # get product page link
         name, desc, price, power, dimensions, brand, high_res_img_link,img_path = get_product_info(
             link)  # get product info from product page
         # low_res_img_link  = product.find('img')['data-src'] #get product miniature link
-        products.append({"id":counter,"name": name, "brand": brand, "description": desc, "power": power, "dimensions": dimensions,
+        products.append({"name": name, "brand": brand, "description": desc, "power": power, "dimensions": dimensions,
                          "price": price, "category": cat_name, "subcategory": subcategory['name'],
                          "high_res_img_link": high_res_img_link,"img_path":img_path})  # ,"low_res_img_link":low_res_img_link})
         # #add product info to products list
-        counter+=1
     return products
 
 

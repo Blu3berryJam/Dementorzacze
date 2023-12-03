@@ -70,7 +70,6 @@ def add_product(product):
     prod_schema["product"]["id_manufacturer"] = add_brand(product["brand"])
     prod_schema["product"]["id_category_default"] = subcat_id
     prod_schema["product"]["id_shop_default"] = 1
-    prod_schema["product"]["reference"] = product["id"]
     prod_schema["product"]["id_tax_rules_group"] = 4  # TODO presta fix
     prod_schema["product"]["link_rewrite"]["language"]["value"] = re.sub(r"[^a-zA-Z0-9]+", "-", product["name"]).lower()
     prod_schema["product"]["active"] = 1
@@ -126,7 +125,7 @@ def add_products():
             add_product(prod)
 
 
-prestashop = prestapyt.PrestaShopWebServiceDict(presta_link, "X56WC1EAT6K1ME1AR6CRHXSCPHYIUKUG")  # TODO add key
+prestashop = prestapyt.PrestaShopWebServiceDict(presta_link, "X56WC1EAT6K1ME1AR6CRHXSCPHYIUKUG")
 
 cat_schema = prestashop.get("categories", options={"schema": "blank"})
 prod_schema = prestashop.get("products", options={"schema": "blank"})
