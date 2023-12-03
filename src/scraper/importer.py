@@ -53,6 +53,7 @@ def add_brand(name):
     brand = prestashop.get("manufacturers", options={"filter[name]": name})
     if not brand["manufacturers"]:
         brand_schema['manufacturer']['name'] = name
+        brand_schema["manufacturer"]["active"] = 1
         brand_schema['manufacturer']['meta_title']["language"]["value"] = name
         brand_schema['manufacturer']['meta_keywords']["language"]["value"] = name
         return prestashop.add("manufacturers", brand_schema)["prestashop"]["manufacturer"]["id"]
