@@ -138,3 +138,6 @@ brand_schema = prestashop.get("manufacturers", options={"schema": "blank"})
 
 remove_categories()
 remove_products()
+remove_brands()
+add_categories()
+add_products()
