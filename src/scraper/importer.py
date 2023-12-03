@@ -18,7 +18,7 @@ def get_ids(names, name):
 
 def remove_categories():
     ids = get_ids("categories", "category")
-    ids = [i for i in ids if int(i) >= 3]
+    ids = [i for i in ids if int(i) >= 2]
     if len(ids):
         prestashop.delete("categories", resource_ids=ids)
 
