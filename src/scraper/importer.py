@@ -68,7 +68,7 @@ def add_product(product):
         "id"]
     prod_schema["product"]["name"]["language"]["value"] = product["name"]
     prod_schema["product"]["id_manufacturer"] = add_brand(product["brand"])
-    prod_schema["product"]["id_category_default"] = cat_id
+    prod_schema["product"]["id_category_default"] = subcat_id
     prod_schema["product"]["id_shop_default"] = 1
     prod_schema["product"]["reference"] = product["id"]
     prod_schema["product"]["id_tax_rules_group"] = 4  # TODO presta fix
@@ -110,11 +110,21 @@ def add_product(product):
 
 
 def add_categories():
-    home_id = 2
+    cat = prestashop.get("categories", options={"filter[name]": "produkty"})
+    root_id = 2
+    if not cat["categories"]:
+        cat_schema["category"]["name"]["language"]["value"] = "produkty"
+        cat_schema["category"]["is_root_category"] = 1
+        cat_schema["category"]["active"] = 1
+        cat_schema["category"]["link_rewrite"]["language"]["value"] = "produkty"
+        cat_schema["category"]["description"]["language"]["value"] =  "Kategoria bazowa"
+        root_id = prestashop.add("categories", cat_schema)["prestashop"]["category"]["id"]
+    else:
+        root_id = cat["categories"]["category"]["attrs"]["id"]
     with open(data_folder + "/categories.json", "r") as infile:
         categories = json.load(infile)
         for cat in categories:
-            cat_id = add_category(cat['name'], home_id)
+            cat_id = add_category(cat['name'], root_id)
             for subcat in cat['subcategories']:
                 add_category(subcat['name'], cat_id)
 
