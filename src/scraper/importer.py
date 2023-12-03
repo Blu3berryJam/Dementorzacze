@@ -58,7 +58,7 @@ def add_brand(name):
         brand_schema['manufacturer']['meta_keywords']["language"]["value"] = name
         return prestashop.add("manufacturers", brand_schema)["prestashop"]["manufacturer"]["id"]
     else:
-        return brand["manufacturers"]['manufacturer']["id"]
+        return brand["manufacturers"]['manufacturer']["attrs"]["id"]
 
 
 def add_product(product):
