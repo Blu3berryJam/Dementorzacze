@@ -1,15 +1,12 @@
 # Instalacja
-To jest wersja bez zainstalowanej presty -> zainstalowaną prestę można pobrać 
-przez link:
-
-rozpakuj tara w folderze projektu 
-
 
 ## Ubuntu
-nadać uprawnienia do czytania i pisania wszystkim plikom w projekcie
-i następnie uruchomić kontener na poziomie administratora
+nadać uprawnienia do czytania i pisania wszystkim plikom w projekcie,
+stworzyć plik z zmiennymi środowiskowymi przez zmianę nazwy i rozszerzenia
+pliku environment.ex na .env i następnie uruchomić kontener na poziomie administratora
 
 ```
+cp environment.ex .env
 sudo chmod -R 777 *
 sudo docker compose up
 ```
