@@ -1,10 +1,9 @@
 # Instalacja
+To jest wersja bez zainstalowanej presty -> zainstalowaną prestę można pobrać 
+przez link:
 
-## Windows
-uruchomić kontener poleceniem:
-```
-docker compose up
-```
+rozpakuj tara w folderze projektu 
+
 
 ## Ubuntu
 nadać uprawnienia do czytania i pisania wszystkim plikom w projekcie
