@@ -13,6 +13,12 @@ cd ..
 sudo docker compose up
 ```
 
+ALBO możesz wykonać powyższe czynności poprzez uruchomienie skryptu runPrestashop.sh
+
+```
+bash runPrestashop.sh
+```
+
 ## Włączenie ssl na prestashopie:
 Uruchom skrypt enableSSL.sh
 Aby go uruchomić musisz być w folderze ssl
