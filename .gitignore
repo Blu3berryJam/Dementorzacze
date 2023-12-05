@@ -4,6 +4,12 @@
 *.log
 *.sock
 
+# Keys
+*.crt
+*.key
+*.pem
+*.csr
+
 # Cache
 /cache/*
 !/cache/.htaccess
