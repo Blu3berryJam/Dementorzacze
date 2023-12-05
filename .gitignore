@@ -10,6 +10,9 @@
 *.pem
 *.csr
 
+# Pictures 
+/app/img/p/*
+
 # Cache
 /cache/*
 !/cache/.htaccess
