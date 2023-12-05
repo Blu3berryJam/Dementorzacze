@@ -6,6 +6,7 @@ services:
     container_name: prestashop-db
     command: --default-authentication-plugin=mysql_native_password
     environment:
+      DEV_MODE: ${DEV_MODE:-}
       MYSQL_DATABASE: prestashop
       MYSQL_ROOT_PASSWORD: prestashop
       SHOP_HTTP_PORT: ${SHOP_HTTPS_PORT}
@@ -25,6 +26,7 @@ services:
       DB_SERVER: mysql
       SHOP_HTTP_PORT: ${SHOP_HTTPS_PORT}
       SHOP_HTTPS_PORT: ${SHOP_HTTPS_PORT}
+      PS_DEV_MODE: 1
     volumes:
       - ./app:/var/www/html
     ports:
