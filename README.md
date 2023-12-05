@@ -7,7 +7,9 @@ pliku environment.ex na .env i następnie uruchomić kontener na poziomie admini
 
 ```
 cp environment.ex .env
-sudo chmod -R 777 *
+cd app
+sudo chmod -R 777 admin_123 cache themes var
+cd .. 
 sudo docker compose up
 ```
 
