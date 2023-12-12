@@ -4,6 +4,15 @@
 *.log
 *.sock
 
+# Keys
+*.crt
+*.key
+*.pem
+*.csr
+
+# Pictures 
+/app/img/p/*
+
 # Cache
 /cache/*
 !/cache/.htaccess
