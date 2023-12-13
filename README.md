@@ -11,7 +11,7 @@ Zespół:
     <ul>Justyna Dąbrowska</ul>
     <ul>Filip Daab</ul>
     <ul>Konrad Drozd</ul>
-<li>
+</li>
 
 # Instalacja
 
