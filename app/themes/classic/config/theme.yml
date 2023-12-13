@@ -54,7 +54,13 @@ global_settings:
    to_enable:
      - ps_linklist
   hooks:
+    custom_hooks:
+      - name: displayTop1
+        title: displayTop1
+        description: Adds column block in header
     modules_to_hook:
+      displayTop1:
+        - ps_searchbar
       displayAfterBodyOpeningTag:
         - blockreassurance
       displayNavFullWidth:
