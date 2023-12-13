@@ -4,14 +4,6 @@
 *.log
 *.sock
 
-#db dumb files
-/db_dump/mysql/aria_log.00000001
-/db_dump/mysql/aria_log_control
-/db_dump/mysql/ib_buffer_pool
-/db_dump/mysql/ib_logfile0
-/db_dump/mysql/ibdata1
-/db_dump/mysql/prestashop/ps_connections.ibd
-/db_dump/mysql/undo003
 # Keys
 *.crt
 *.key
