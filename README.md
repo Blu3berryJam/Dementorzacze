@@ -5,14 +5,22 @@ Projekt wykonany na przedmiot biznes elektroniczny: odwzorowanie sklepu internet
 Sklep: [eOdkurzacz.pl](https://eodkurzacz.pl/)
 
 Zespół:
-<li>
-    <ul>Mikołaj Bisewski</ul>
-    <ul>Michał Jaroszewicz</ul>
-    <ul>Justyna Dąbrowska</ul>
-    <ul>Filip Daab</ul>
-    <ul>Konrad Drozd</ul>
-</li>
+<ul>
+    <li>Mikołaj Bisewski</li>
+    <li>Michał Jaroszewicz</li>
+    <li>Justyna Dąbrowska</li>
+    <li>Filip Daab</li>
+    <li>Konrad Drozd</li>
+</ul>
 
+Oprogramowanie:
+<ul>
+    <li>Prestashop v1.7.8</li>
+    <li>MariaDB v11.2</li>
+    <li>Docker</li>
+    <li>Python3</li>
+    <li>Selenium</li>
+</ul>
 # Instalacja
 
 ## Ubuntu
