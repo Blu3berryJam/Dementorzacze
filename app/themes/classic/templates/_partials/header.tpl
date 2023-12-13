@@ -57,8 +57,8 @@
 {block name='header_top'}
   <div class="header-top">
     <div class="container">
-       <div class="row">
-        <div class="col-md-2 hidden-sm-down" id="_desktop_logo">
+      <div class="row">
+        <div class="col-md-6 hidden-sm-down" id="_desktop_logo">
           {if $shop.logo_details}
             {if $page.page_name == 'index'}
               <h1>
@@ -69,7 +69,7 @@
             {/if}
           {/if}
         </div>
-        <div class="header-top-right col-md-10 col-sm-12 position-static">
+        <div class="col-md-12 col-sm-12 position-static">
           {hook h='displayTop'}
         </div>
       </div>
@@ -83,5 +83,11 @@
       </div>
     </div>
   </div>
-  {hook h='displayNavFullWidth'}
+  <div class="container">
+      <div class="row">
+        <div class="header-top col-md-12 col-sm-12 position-static">
+          {hook h='displayNavFullWidth'}
+        </div>
+      </div>
+  </div>
 {/block}
