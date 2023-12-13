@@ -1,3 +1,18 @@
+# Projekt
+
+Projekt wykonany na przedmiot biznes elektroniczny: odwzorowanie sklepu internetowego.
+
+Sklep: [eOdkurzacz.pl](https://eodkurzacz.pl/)
+
+Zespół:
+<li>
+    <ul>Mikołaj Bisewski</ul>
+    <ul>Michał Jaroszewicz</ul>
+    <ul>Justyna Dąbrowska</ul>
+    <ul>Filip Daab</ul>
+    <ul>Konrad Drozd</ul>
+<li>
+
 # Instalacja
 
 ## Ubuntu
