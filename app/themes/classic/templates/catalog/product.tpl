@@ -138,7 +138,12 @@
               {hook h='displayReassurance'}
             {/block}
 
-            {block name='product_tabs'}
+            
+        </div>
+      </div>
+    </div>
+
+    {block name='product_tabs'}
               <div class="tabs">
                 <ul class="nav nav-tabs" role="tablist">
                   {if $product.description}
@@ -221,9 +226,6 @@
               </div>
             </div>
           {/block}
-        </div>
-      </div>
-    </div>
 
     {block name='product_accessories'}
       {if $accessories}
