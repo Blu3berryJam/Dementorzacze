@@ -83,5 +83,11 @@
       </div>
     </div>
   </div>
-  {hook h='displayNavFullWidth'}
+  <div class="container">
+      <div class="row">
+        <div class="header-top col-md-12 col-sm-12 position-static">
+          {hook h='displayNavFullWidth'}
+        </div>
+      </div>
+  </div>
 {/block}
