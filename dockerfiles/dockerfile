@@ -1,0 +1,21 @@
+FROM prestashop/prestashop:1.7
+COPY environment.ex .env
+RUN rm -rf /var/www/html/install
+RUN apt-get update && apt-get install memcached libmemcached-dev zlib1g-dev -y
+RUN pecl install memcached
+RUN echo extension=memcached.so >> /usr/local/etc/php/php.ini
+RUN /etc/init.d/apache2 restart
+WORKDIR /etc/ssl/dementorzacze
+COPY ssl/domains.ext .
+RUN mkdir -p keys
+RUN openssl req -x509 -nodes -new -sha256 -days 1024 -newkey rsa:2048 -keyout keys/RootCA.key -out keys/RootCA.pem -subj "/C=US/CN=Example-Root-CA"
+RUN openssl x509 -outform pem -in keys/RootCA.pem -out keys/RootCA.crt
+RUN openssl req -new -nodes -newkey rsa:2048 -keyout keys/localhost.key -out keys/localhost.csr -subj "/C=US/ST=YourState/L=YourCity/O=Example-Certificates/CN=localhost.local"
+RUN openssl x509 -req -sha256 -days 1024 -in keys/localhost.csr -CA keys/RootCA.pem -CAkey keys/RootCA.key -CAcreateserial -extfile domains.ext -out keys/localhost.crt
+COPY ssl/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+RUN ln -s /etc/apache2/sites-available/default-ssl.conf /etc/apache2/sites-enabled/default-ssl.conf
+RUN a2enmod ssl
+RUN service apache2 restart
+WORKDIR /var/www/html
+COPY app .
+RUN chmod -R 777 admin_123 cache themes var
