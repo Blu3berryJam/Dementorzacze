@@ -22,7 +22,7 @@
  * @copyright Since 2007 PrestaShop SA and Contributors
  * @license   https://opensource.org/licenses/AFL-3.0 Academic Free License 3.0 (AFL-3.0)
  *}
-<a class="banner" href="{$banner_link}">
+<a onClick="gtag('event','banner_click')" class="banner" href="{$banner_link}">
   {if isset($banner_img)}
     <img
       class="img-fluid"
